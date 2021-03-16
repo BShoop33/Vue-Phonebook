@@ -1,7 +1,13 @@
 <template>
   <div>
-    <contacts-table :contacts="contacts" />
-    <contact-form @contact-submit="addContact" />
+    <v-row>
+      <v-col :md="8" :sm="12">
+        <contacts-table :contacts="contacts" />
+      </v-col>
+      <v-col :md="4" :sm="12">
+        <contact-form @contact-submit="addContact" />
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -16,6 +22,11 @@ export default {
     return {
       contacts: [],
     };
+  },
+
+  mounted() {
+    const existingContacts = JSON.parse(localStorage.getItem("contacts"));
+    this.contacts = existingContacts || [];
   },
 
   methods: {
