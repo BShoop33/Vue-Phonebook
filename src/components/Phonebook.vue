@@ -21,6 +21,7 @@ export default {
   methods: {
     addContact(newContact) {
       this.contacts.push(newContact);
+      localStorage.setItem("contacts", JSON.stringify(this.contacts));
     },
   },
 };
