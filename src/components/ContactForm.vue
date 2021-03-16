@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3 class="teal--text">New Contact</h3>
-    <v-form @submit.prevent="handleSubmit">
+    <v-form @submit.prevent="handleSubmit" refs="contactForm">
       <v-text-field outlined label="First Name" v-model="form.firstName" />
       <v-text-field outlined label="Last Name" v-model="form.lastName" />
       <v-text-field outlined label="Phone" v-model="form.phone" />
@@ -35,6 +35,7 @@ export default {
   methods: {
     handleSubmit() {
       this.$emit("contact-submit", this.form);
+      this.$refs.contactForm.reset();
     },
   },
 };
