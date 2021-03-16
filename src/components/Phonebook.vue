@@ -1,9 +1,13 @@
 <template>
-  <h1>Phonebook stuff goes here</h1>
+  <contact-form />
 </template>
 
 <script>
+import ContactForm from "./ContactForm.vue";
+
 export default {
+  components: { ContactForm },
+
   data() {
     return {
       contacts: [],
